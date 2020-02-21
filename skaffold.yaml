@@ -1,0 +1,14 @@
+apiVersion: skaffold/v2alpha4
+kind: Config
+metadata:
+  name: dockerappdemo
+build:
+  artifacts:
+  - image: k8s-dockerappdemo
+    docker:
+      dockerfile: DockerFile
+deploy:
+  kubectl:
+    manifests:
+    - ./k8s/local/dockerappdemo_deployment.yaml
+    - ./k8s/local/dockerappdemo_svc.yaml

@@ -1,0 +1,38 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  labels:
+    k8s-app: argocddemo
+  name: argocddemo
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      k8s-app: argocddemo
+  template:
+    metadata:
+      labels:
+        k8s-app: argocddemo
+    spec:
+      containers:
+      - name: argocddemo
+        image: gcr.io/aliz-tiket-sandbox/k8s-dockerappdemo:latest 
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "1024Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        livenessProbe:
+          httpGet:
+            scheme: HTTP
+            path: /message
+            port: 8080
+          initialDelaySeconds: 30
+          timeoutSeconds: 30
