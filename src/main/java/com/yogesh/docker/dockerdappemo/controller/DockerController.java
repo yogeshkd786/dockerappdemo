@@ -9,6 +9,6 @@ public class DockerController {
 	@GetMapping("/message")
 	public String getMyName() {
 		
-		return "Simple Spring Boot docker Application demo for argocd and local";
+		return "Simple Spring Boot docker Application demo for argocd CI CD";
 	}
 }
