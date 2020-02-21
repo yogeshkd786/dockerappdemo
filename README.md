@@ -12,4 +12,4 @@
         - on the "Disk" tab, set at least 32 GB disk space
 
 5. Run `kubectl get nodes` to verify you're connected to “Kubernetes on Docker”
-6. Execute command ** skaffold run ** or ** skaffold dev **
+6. Execute command **skaffold run** or **skaffold dev**
